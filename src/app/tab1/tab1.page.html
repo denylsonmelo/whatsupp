@@ -33,8 +33,10 @@
           [src]="i.foto"
         />
       </ion-avatar>
-      <h4> {{ i.nome }} </h4>
-      <p> {{ i.ultimaMensagem }} </p>
+      <ion-label>
+        <h4> {{ i.nome }} </h4>
+        <p> {{ i.ultimaMensagem }} </p>
+      </ion-label>
       <ion-badge slot="end"> {{ i.qtdMensagensNaoLidas }} </ion-badge>
     </ion-item>
   </ion-list>

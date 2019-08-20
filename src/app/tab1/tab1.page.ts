@@ -23,14 +23,7 @@ export class Tab1Page {
       ultimaMensagem: 'quibusdam omnis cupiditate',
       foto: 'https://s3.amazonaws.com/uifaces/faces/twitter/falvarad/128.jpg'
     },
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {}
+
   ];
 
   constructor() {}
