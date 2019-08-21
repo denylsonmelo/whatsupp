@@ -7,10 +7,13 @@ import { ResumoConversa } from '../models/models';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+
+  paginaAtiva = 'chamadas';
+
   conversas: Array<ResumoConversa> = [
     {
       qtdMensagensNaoLidas: 3,
-      nome: 'evaldo',
+      nome: 'Elísio',
       ultimaHora: new Date(Date.now()),
       ultimaMensagem: 'e aew',
       foto:
@@ -27,4 +30,8 @@ export class Tab1Page {
   ];
 
   constructor() {}
+
+  trocouSegmento(evento: any) {
+    this.paginaAtiva = evento.detail.value;
+  }
 }
