@@ -4,4 +4,14 @@ export interface ResumoConversa {
     ultimaMensagem: string;
     ultimaHora: Date;
     qtdMensagensNaoLidas: number;
+    id: string;
+    status: StatusMensagem;
+    minha: boolean;
+}
+
+export enum StatusMensagem {
+    ENVIANDO,
+    ENVIADO,
+    RECEBIDO,
+    VISUALIZADO
 }

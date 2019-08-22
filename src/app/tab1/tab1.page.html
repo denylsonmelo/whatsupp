@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar color="primary">
     <ion-buttons slot="primary">
       <ion-button>
@@ -16,13 +16,13 @@
 <ion-content>
   <ion-segment [value]="paginaAtiva" (ionChange)="trocouSegmento($event)">
     <ion-segment-button value="conversas">
-      <ion-label>Conversas</ion-label>
+      <ion-label><strong>Conversas</strong></ion-label>
     </ion-segment-button>
     <ion-segment-button value="status">
-      <ion-label>Status</ion-label>
+      <ion-label><strong>Status</strong></ion-label>
     </ion-segment-button>
     <ion-segment-button value="chamadas">
-      <ion-label>Chamadas</ion-label>
+      <ion-label><strong>Chamadas</strong></ion-label>
     </ion-segment-button>
   </ion-segment>
 
@@ -36,11 +36,14 @@
             </ion-avatar>
             <ion-label>
               <h2><strong>{{ i.nome }} </strong></h2>
-              <p> {{ i.ultimaMensagem }} </p>
+              <p> 
+                <ion-icon slot="icon-only" [name]="verificarIcone(i.status, i.minha)" [color]="verificarCor(i.status, i.minha)"></ion-icon>
+                {{ i.ultimaMensagem }} 
+              </p>
             </ion-label>
             <ion-label slot="end">
               <p> {{ i.ultimaHora | date:"dd/MM/yyyy" }} </p>
-              <ion-badge> {{ i.qtdMensagensNaoLidas }} </ion-badge>
+              <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0" > {{ i.qtdMensagensNaoLidas }} </ion-badge>
             </ion-label>
             </ion-item>
         </ion-list>
