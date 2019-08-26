@@ -26,39 +26,41 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div *ngIf="paginaAtiva === 'conversas' "  >
-      <ion-list>
-          <ion-item *ngFor="let i of conversas">
-            <ion-avatar slot="start">
-              <img
-                [src]="i.foto"
-              />
-            </ion-avatar>
-            <ion-label>
-              <h2><strong>{{ i.nome }} </strong></h2>
-              <p> 
-                <ion-icon slot="icon-only" [name]="verificarIcone(i.status, i.minha)" [color]="verificarCor(i.status, i.minha)"></ion-icon>
-                {{ i.ultimaMensagem }} 
-              </p>
-            </ion-label>
-            <ion-label slot="end">
-              <p> {{ i.ultimaHora | date:"dd/MM/yyyy" }} </p>
-              <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0" > {{ i.qtdMensagensNaoLidas }} </ion-badge>
-            </ion-label>
-            </ion-item>
-        </ion-list>
+  <div *ngIf="deveExibirPaginaConversas()">
+    <ion-list>
+      <ion-item *ngFor="let i of conversas">
+        <ion-avatar slot="start">
+          <img [src]="i.foto" />
+        </ion-avatar>
+        <ion-label>
+          <h2>
+            <strong>{{ i.nome }} </strong>
+          </h2>
+          <p>
+            <ion-icon
+              slot="icon-only"
+              [name]="verificarIcone(i)"
+              [color]="verificarCor(i)"
+              [hidden]="esconderIconeEnvio(i)"
+            ></ion-icon>
+            {{ i.ultimaMensagem }}
+          </p>
+        </ion-label>
+          <p>{{ i.ultimaHora | date: "dd/MM/yyyy" }}</p>
+          <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0" >
+            {{ i.qtdMensagensNaoLidas }}
+          </ion-badge>
+      </ion-item>
+    </ion-list>
   </div>
 
-  <div *ngIf="paginaAtiva === 'status' "> 
+  <div *ngIf="deveExibirPaginaStatus()">
     texto dos status
   </div>
-  
-  <div *ngIf="paginaAtiva === 'chamadas' "> 
-    texto das chamadas 
+
+  <div *ngIf="deveExibirPaginaChamadas()">
+    texto das chamadas
   </div>
-
-
-  
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>

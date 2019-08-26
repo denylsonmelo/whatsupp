@@ -92,11 +92,8 @@ export class Tab1Page {
     this.paginaAtiva = evento.detail.value;
   }
 
-  verificarIcone(status: StatusMensagem, minha: boolean): string {
-    if (!minha && StatusMensagem.VISUALIZADO) {
-      return '';
-    }
-    switch (status) {
+  verificarIcone(resumo: ResumoConversa): string {
+    switch (resumo.status) {
       case StatusMensagem.ENVIANDO:
         return 'time';
       case StatusMensagem.ENVIADO:
@@ -110,7 +107,27 @@ export class Tab1Page {
     }
   }
 
-  verificarCor(status: StatusMensagem, minha: boolean): string {
-    return (status === StatusMensagem.VISUALIZADO && minha) ? 'secondary' : 'medium';
+  verificarCor(resumo: ResumoConversa): string {
+    return (resumo.status === StatusMensagem.VISUALIZADO && resumo.minha) ? 'secondary' : 'medium';
+  }
+
+  esconderIconeEnvio(resumo: ResumoConversa) {
+      return (resumo.status === StatusMensagem.VISUALIZADO && !resumo.minha) ? true : false;
+  }
+
+  deveExibirPaginaConversas() {
+    return this.deveExibirPagina('conversas');
+  }
+
+  deveExibirPaginaChamadas() {
+    return this.deveExibirPagina('chamadas');
+  }
+
+  deveExibirPaginaStatus() {
+    return this.deveExibirPagina('status');
+  }
+
+  private deveExibirPagina(pagina) {
+    return this.paginaAtiva === pagina;
   }
 }
