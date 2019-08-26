@@ -8,16 +8,38 @@
 
 ### 🏠 [Homepage](https://ionicframework.com/)
 
+## A fazer
+
+### Tela de conversas
+- [X] Criar pagina
+- [X] Organizar elementos na tela
+- [X] Criar listagem de conversas simples
+- [X] Povoar com dados ficticios
+- [ ] Chamar pagina de pesquisa quando clicar no botao pesquisa
+- [ ] Aparecer popover com opcoes quando clicar no botao mais
+- [ ] Aparecer modal com opcoes quando clicar na imagem de perfil da pessoa
+- [ ] Entrar na conversa com a pessoa quando clicar na conversa
+- [ ] Pegar dados do firebase
+
+### Tela de conversa individual
+
+### Tela de Status
+
+### Tela de Chamadas
+
+### Tela de pesquisa
+
+
 ## Install
 
 ```sh
-npm install && ionic serve
+npm install
 ```
 
 ## Usage
 
 ```sh
-npm install && ionic serve
+ionic serve
 ```
 
 ## Run tests
