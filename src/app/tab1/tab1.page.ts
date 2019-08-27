@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+
 import { ResumoConversa, StatusMensagem } from '../models/models';
 
 @Component({
@@ -86,7 +88,7 @@ export class Tab1Page {
     }
   ];
 
-  constructor() {}
+  constructor(private navCtrl: NavController) {}
 
   trocouSegmento(evento: any) {
     this.paginaAtiva = evento.detail.value;
@@ -98,12 +100,10 @@ export class Tab1Page {
         return 'time';
       case StatusMensagem.ENVIADO:
         return 'checkmark';
-      case StatusMensagem.RECEBIDO:
+      case StatusMensagem.RECEBIDO || StatusMensagem.VISUALIZADO:
         return 'done-all';
       case StatusMensagem.VISUALIZADO:
         return 'done-all';
-      default:
-        return '';
     }
   }
 
@@ -111,7 +111,7 @@ export class Tab1Page {
     return (resumo.status === StatusMensagem.VISUALIZADO && resumo.minha) ? 'secondary' : 'medium';
   }
 
-  esconderIconeEnvio(resumo: ResumoConversa) {
+  deveEsconderIconeEnvio(resumo: ResumoConversa) {
       return (resumo.status === StatusMensagem.VISUALIZADO && !resumo.minha) ? true : false;
   }
 
@@ -129,5 +129,17 @@ export class Tab1Page {
 
   private deveExibirPagina(pagina) {
     return this.paginaAtiva === pagina;
+  }
+
+  irParaPaginaPesquisa() {
+    this.irParaPagina('pesquisa');
+  }
+
+  irParaPaginaContatos() {
+    this.irParaPagina('contatos');
+  }
+
+  private irParaPagina(pagina) {
+    this.navCtrl.navigateForward(pagina);
   }
 }
