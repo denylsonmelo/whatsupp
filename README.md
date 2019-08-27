@@ -11,11 +11,13 @@
 ## A fazer
 
 ### Tela de conversas
+- [X] Desfazer codigo inicial do template tabs
 - [X] Criar pagina
 - [X] Organizar elementos na tela
 - [X] Criar listagem de conversas simples
 - [X] Povoar com dados ficticios
-- [ ] Chamar pagina de pesquisa quando clicar no botao pesquisa
+- [X] Chamar pagina de pesquisa quando clicar no botao pesquisa
+- [X] Chamar pagina de contatos quando clicar no fab button
 - [ ] Aparecer popover com opcoes quando clicar no botao mais
 - [ ] Aparecer modal com opcoes quando clicar na imagem de perfil da pessoa
 - [ ] Entrar na conversa com a pessoa quando clicar na conversa
