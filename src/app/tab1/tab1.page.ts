@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import {
+  NavController,
+  PopoverController,
+} from '@ionic/angular';
 
 import { ResumoConversa, StatusMensagem } from '../models/models';
+import { ContatosPage } from '../contatos/contatos.page';
+import { MenuOpcoesComponent } from '../components/menu-opcoes/menu-opcoes.component';
+import { OpcoesContatoComponent } from '../components/opcoes-contato/opcoes-contato.component';
 
 @Component({
   selector: 'app-tab1',
@@ -88,7 +94,25 @@ export class Tab1Page {
     }
   ];
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private ppvCtrl: PopoverController,
+  ) {}
+
+  async exibirOpcoesContato(event) {
+    const modal = await this.ppvCtrl.create({
+      component: OpcoesContatoComponent
+    });
+    return await modal.present();
+  }
+
+  async exibirMenuOpcoes(ev) {
+    const popover = await this.ppvCtrl.create({
+      component: MenuOpcoesComponent,
+      event: ev
+    });
+    return await popover.present();
+  }
 
   trocouSegmento(evento: any) {
     this.paginaAtiva = evento.detail.value;
@@ -108,11 +132,15 @@ export class Tab1Page {
   }
 
   verificarCor(resumo: ResumoConversa): string {
-    return (resumo.status === StatusMensagem.VISUALIZADO && resumo.minha) ? 'secondary' : 'medium';
+    return resumo.status === StatusMensagem.VISUALIZADO && resumo.minha
+      ? 'secondary'
+      : 'medium';
   }
 
   deveEsconderIconeEnvio(resumo: ResumoConversa) {
-      return (resumo.status === StatusMensagem.VISUALIZADO && !resumo.minha) ? true : false;
+    return resumo.status === StatusMensagem.VISUALIZADO && !resumo.minha
+      ? true
+      : false;
   }
 
   deveExibirPaginaConversas() {
