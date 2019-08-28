@@ -6,3 +6,16 @@ ion-segment-button {
   --color-activated: #ffffff;
   --color-checked: #ffffff;
 }
+
+#data{
+  position: absolute;
+  right: 1%;
+  font-size: 12px;
+  bottom: 50%;
+}
+
+ion-badge{
+  position: absolute;
+  right: 1%;
+  bottom: 17%;
+}
