@@ -46,7 +46,7 @@
             {{ i.ultimaMensagem }}
           </p>
         </ion-label>
-          <p>{{ i.ultimaHora | date: "dd/MM/yyyy" }}</p>
+          <p id="data">{{ i.ultimaHora | date: "dd/MM/yyyy" }}</p>
           <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0" >
             {{ i.qtdMensagensNaoLidas }}
           </ion-badge>
