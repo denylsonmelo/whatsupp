@@ -29,7 +29,7 @@
   <div *ngIf="deveExibirPaginaConversas()">
     <ion-list>
       <ion-item *ngFor="let i of conversas">
-        <ion-avatar slot="start" (click)="exibirOpcoesContato($event)" >
+        <ion-avatar slot="start" (click)="exibirOpcoesContato(i)">
           <img [src]="i.foto" />
         </ion-avatar>
         <ion-label>
@@ -46,10 +46,10 @@
             {{ i.ultimaMensagem }}
           </p>
         </ion-label>
-          <p id="data">{{ i.ultimaHora | date: "dd/MM/yyyy" }}</p>
-          <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0" >
-            {{ i.qtdMensagensNaoLidas }}
-          </ion-badge>
+        <p id="data">{{ i.ultimaHora | date: "dd/MM/yyyy" }}</p>
+        <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0">
+          {{ i.qtdMensagensNaoLidas }}
+        </ion-badge>
       </ion-item>
     </ion-list>
   </div>
@@ -62,7 +62,12 @@
     texto das chamadas
   </div>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="irParaPaginaContatos()">
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+    (click)="irParaPaginaContatos()"
+  >
     <ion-fab-button>
       <ion-icon name="text"></ion-icon>
     </ion-fab-button>

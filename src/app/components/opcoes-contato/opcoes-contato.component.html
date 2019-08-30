@@ -1,3 +1,20 @@
-nome da pessoa
-imagem
-barra de botoes
+<div>
+    <ion-label>{{ nome }}</ion-label>
+</div>
+<ion-img [src]="imagem"></ion-img>
+<ion-toolbar color="primary">
+  <ion-buttons>
+      <ion-button>
+        <ion-icon slot="icon-only" name="text"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="call"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="videocam"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+      </ion-button>
+</ion-buttons>
+</ion-toolbar>

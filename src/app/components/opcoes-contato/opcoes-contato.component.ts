@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-opcoes-contato',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./opcoes-contato.component.scss'],
 })
 export class OpcoesContatoComponent implements OnInit {
+
+  @Input() id: string;
+  @Input() nome: string;
+  @Input() imagem: string;
 
   constructor() { }
 

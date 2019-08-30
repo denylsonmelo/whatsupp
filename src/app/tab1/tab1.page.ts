@@ -99,9 +99,14 @@ export class Tab1Page {
     private ppvCtrl: PopoverController,
   ) {}
 
-  async exibirOpcoesContato(event) {
+  async exibirOpcoesContato(conversa: ResumoConversa) {
     const modal = await this.ppvCtrl.create({
-      component: OpcoesContatoComponent
+      component: OpcoesContatoComponent,
+      componentProps: {
+        id: conversa.id,
+        nome: conversa.nome,
+        imagem: conversa.foto
+      }
     });
     return await modal.present();
   }
