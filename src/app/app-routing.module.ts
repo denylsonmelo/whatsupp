@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { Tab1PageModule } from './tab1/tab1.module';
+import { ListagemPageModule } from './listagem/listagem.module';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule)
+    loadChildren: () => import('./listagem/listagem.module').then(m => m.ListagemPageModule)
   },
   { path: 'pesquisa', loadChildren: './pesquisa/pesquisa.module#PesquisaPageModule' },
-  { path: 'contatos', loadChildren: './contatos/contatos.module#ContatosPageModule' }
+  { path: 'contatos', loadChildren: './contatos/contatos.module#ContatosPageModule' },
+  { path: 'listagem', loadChildren: './listagem/listagem.module#ListagemPageModule' },
+  { path: 'conversa', loadChildren: './conversa/conversa.module#ConversaPageModule' }
 ];
 @NgModule({
   imports: [
