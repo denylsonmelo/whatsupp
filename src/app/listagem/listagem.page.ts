@@ -10,11 +10,11 @@ import { MenuOpcoesComponent } from '../components/menu-opcoes/menu-opcoes.compo
 import { OpcoesContatoComponent } from '../components/opcoes-contato/opcoes-contato.component';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-listagem',
+  templateUrl: 'listagem.page.html',
+  styleUrls: ['listagem.page.scss']
 })
-export class Tab1Page {
+export class ListagemPage {
   paginaAtiva = 'conversas';
 
   conversas: Array<ResumoConversa> = [
@@ -164,6 +164,10 @@ export class Tab1Page {
     return this.paginaAtiva === pagina;
   }
 
+  irParaPaginaConversa(uuid) {
+    this.irParaPagina('conversa', uuid);
+  }
+
   irParaPaginaPesquisa() {
     this.irParaPagina('pesquisa');
   }
@@ -173,6 +177,6 @@ export class Tab1Page {
   }
 
   private irParaPagina(pagina) {
-    this.navCtrl.navigateForward(pagina);
+    this.navCtrl.navigateForward(pagina, );
   }
 }
