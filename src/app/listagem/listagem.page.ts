@@ -165,7 +165,8 @@ export class ListagemPage {
   }
 
   irParaPaginaConversa(uuid) {
-    this.irParaPagina('conversa', uuid);
+    this.irParaPagina(`conversa/${uuid}`);
+    // this.irParaPagina('conversa/' + uuid + '');
   }
 
   irParaPaginaPesquisa() {
@@ -177,6 +178,6 @@ export class ListagemPage {
   }
 
   private irParaPagina(pagina) {
-    this.navCtrl.navigateForward(pagina, );
+    this.navCtrl.navigateForward(pagina);
   }
 }

@@ -4,7 +4,7 @@
 <ion-img [src]="imagem"></ion-img>
 <ion-toolbar color="primary">
   <ion-buttons>
-      <ion-button>
+      <ion-button (click)="irParaPaginaConversa()" > 
         <ion-icon slot="icon-only" name="text"></ion-icon>
       </ion-button>
       <ion-button>
@@ -13,7 +13,7 @@
       <ion-button>
         <ion-icon slot="icon-only" name="videocam"></ion-icon>
       </ion-button>
-      <ion-button>
+      <ion-button (click)="irParaPaginaPerfil()" >
         <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
       </ion-button>
 </ion-buttons>

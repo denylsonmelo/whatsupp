@@ -32,7 +32,7 @@
         <ion-avatar slot="start" (click)="exibirOpcoesContato(i)">
           <img [src]="i.foto" />
         </ion-avatar>
-        <ion-label (click)="irParaPaginaConversa()" >
+        <ion-label (click)="irParaPaginaConversa(i.id)" >
           <h2>
             <strong>{{ i.nome }} </strong>
           </h2>
@@ -46,8 +46,8 @@
             {{ i.ultimaMensagem }}
           </p>
         </ion-label>
-        <p id="data" (click)="irParaPaginaConversa()">{{ i.ultimaHora | date: "dd/MM/yyyy" }}</p>
-        <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0" (click)="irParaPaginaConversa()">
+        <p id="data" (click)="irParaPaginaConversa(i.id)">{{ i.ultimaHora | date: "dd/MM/yyyy" }}</p>
+        <ion-badge *ngIf="i.qtdMensagensNaoLidas > 0" (click)="irParaPaginaConversa(i.id)">
           {{ i.qtdMensagensNaoLidas }}
         </ion-badge>
       </ion-item>

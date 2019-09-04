@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'pesquisa', loadChildren: './pesquisa/pesquisa.module#PesquisaPageModule' },
   { path: 'contatos', loadChildren: './contatos/contatos.module#ContatosPageModule' },
   { path: 'listagem', loadChildren: './listagem/listagem.module#ListagemPageModule' },
-  { path: 'conversa', loadChildren: './conversa/conversa.module#ConversaPageModule' }
+  { path: 'conversa', loadChildren: './conversa/conversa.module#ConversaPageModule' },
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: '**', loadChildren: './listagem/listagem.module#ListagemPageModule' },
 ];
 @NgModule({
   imports: [
