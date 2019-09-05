@@ -1,13 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-opcoes-contato',
   templateUrl: './opcoes-contato.component.html',
-  styleUrls: ['./opcoes-contato.component.scss'],
+  styleUrls: ['./opcoes-contato.component.scss']
 })
 export class OpcoesContatoComponent implements OnInit {
-
   @Input() id: string;
   @Input() nome: string;
   @Input() imagem: string;
@@ -20,12 +19,15 @@ export class OpcoesContatoComponent implements OnInit {
     this.irParaPagina(`conversa/${this.id}`);
   }
 
-  private irParaPagina(pagina) {
+  private async irParaPagina(pagina) {
+    await this.popoverController.dismiss();
     this.navCtrl.navigateForward(pagina);
   }
 
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private navCtrl: NavController,
+    private popoverController: PopoverController
+  ) {}
 
   ngOnInit() {}
-
 }
