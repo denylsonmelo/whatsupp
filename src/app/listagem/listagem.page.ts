@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  NavController,
-  PopoverController,
-} from '@ionic/angular';
+import { NavController, PopoverController } from '@ionic/angular';
 
 import { ResumoConversa, StatusMensagem } from '../models/models';
 import { ContatosPage } from '../contatos/contatos.page';
@@ -96,7 +93,7 @@ export class ListagemPage {
 
   constructor(
     private navCtrl: NavController,
-    private ppvCtrl: PopoverController,
+    private ppvCtrl: PopoverController
   ) {}
 
   async exibirOpcoesContato(conversa: ResumoConversa) {
