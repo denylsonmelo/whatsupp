@@ -27,7 +27,7 @@ export class ConversaPage implements OnInit {
   }
 
   constructor(private route: ActivatedRoute) {
-    console.log(this.route.snapshot.paramMap.get('id'));
+    // this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {}

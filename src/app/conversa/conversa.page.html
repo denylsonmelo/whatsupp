@@ -20,32 +20,43 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title> 
-      <p>
+    <ion-title>
+      <h3>
         {{ conversa.nome }}
-      </p> 
-      <p> 
+      </h3>
+      <p>
         {{ conversa.ultimaMensagem }}
       </p>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
-  <ion-list>
-    <ion-item *ngFor="let mensagem of mensagens" >
+<ion-content>
+  <ion-list> 
+    <ion-item *ngFor="let mensagem of mensagens">
       {{ mensagem }}
     </ion-item>
   </ion-list>
+
 </ion-content>
 
-<ion-footer>
-    <ion-toolbar>
-      <ion-input placeholder="Digite aqui ..." #campoTexto ></ion-input>
-      <ion-buttons slot="end">
-        <ion-button (click)="enviarMensagem(campoTexto)" >
-          <ion-icon slot="icon-only" name="send"></ion-icon>
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-item>
+      <ion-buttons>
+        <ion-button (click)="enviarMensagem(campoTexto)" item-start>
+          <ion-icon slot="icon-only" name="happy"></ion-icon>
         </ion-button>
       </ion-buttons>
-    </ion-toolbar>
+      <ion-input placeholder="Digite aqui ..." #campoTexto></ion-input>
+      <ion-buttons>
+        <ion-button (click)="enviarMensagem(campoTexto)" item-end>
+          <ion-icon slot="icon-only" name="attach"></ion-icon>
+        </ion-button>
+        <ion-button (click)="enviarMensagem(campoTexto)" item-end>
+          <ion-icon slot="icon-only" name="camera"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
 </ion-footer>

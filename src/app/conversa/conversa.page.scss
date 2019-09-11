@@ -1,3 +1,36 @@
-ion-content{
+ion-header {
+    ion-avatar {
+        height: 45px;
+        width: 45px;
+    }
+
+    ion-title {
+        h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+    }
+}
+
+ion-content {
     --background: #ECE5DD;
+}
+
+ion-footer {
+    ion-toolbar {
+        --background: #ECE5DD;
+        --padding-bottom: 10px;
+        --padding-end: 10px;
+
+        ion-item {
+            --border-radius: 25px;
+
+        }
+    }
 }
