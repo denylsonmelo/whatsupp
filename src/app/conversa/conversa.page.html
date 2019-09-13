@@ -33,8 +33,8 @@
 
 <ion-content>
   <ion-list> 
-    <ion-item *ngFor="let mensagem of mensagens">
-      {{ mensagem }}
+    <ion-item *ngFor="let mensagem of mensagens" [class]="verificarAutor(mensagem)" >
+      {{ mensagem.texto }}
     </ion-item>
   </ion-list>
 

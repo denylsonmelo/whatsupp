@@ -20,6 +20,52 @@ ion-header {
 
 ion-content {
     --background: #ECE5DD;
+
+    ion-list {
+        background: #ECE5DD;
+    }
+}
+
+.enviou {
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", sans-serif;
+    text-align: left;
+    visibility: visible;
+    box-sizing: inherit;
+    color: #000;
+    clear: both;
+    line-height: 18px;
+    font-size: 15px;
+    padding: 8px;
+    position: relative;
+    max-width: 85%;
+    word-wrap: break-word;
+    z-index: -1;
+    margin: 16px 0 8px;
+    --background: #DCF8C6;
+    border-radius: 5px 0px 5px 5px;
+    float: right;
+}
+
+.recebeu {
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", sans-serif;
+    text-align: left;
+    visibility: visible;
+    box-sizing: inherit;
+    color: #000;
+    clear: both;
+    line-height: 18px;
+    font-size: 15px;
+    padding: 8px;
+    position: relative;
+    margin: 8px 0;
+    max-width: 85%;
+    word-wrap: break-word;
+    z-index: -1;
+    --background: #fff;
+    border-radius: 0px 5px 5px 5px;
+    float: left;
 }
 
 ion-footer {
