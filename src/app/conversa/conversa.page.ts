@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ResumoConversa, StatusMensagem, Mensagem } from '../models/models';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-conversa',
@@ -62,7 +63,11 @@ export class ConversaPage implements OnInit {
     this.mensagens.push(campo.value);
   }
 
-  constructor(private route: ActivatedRoute) {
+  irParaPaginaPerfil() {
+    this.navCtrl.navigateForward(`perfil/${this.conversa.id}`);
+  }
+
+  constructor(private route: ActivatedRoute, private navCtrl: NavController) {
     // this.route.snapshot.paramMap.get('id');
   }
 

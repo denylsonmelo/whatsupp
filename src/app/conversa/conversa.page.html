@@ -4,7 +4,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
 
-    <ion-avatar slot="start">
+    <ion-avatar slot="start" (click)="irParaPaginaPerfil()" >
       <img [src]="conversa.foto" />
     </ion-avatar>
 
@@ -20,7 +20,7 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title>
+    <ion-title (click)="irParaPaginaPerfil()" >
       <h3>
         {{ conversa.nome }}
       </h3>

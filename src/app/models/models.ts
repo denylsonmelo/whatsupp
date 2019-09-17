@@ -1,3 +1,14 @@
+export interface Perfil {
+    foto: string;
+    nome: string;
+    midia: Array<string>;
+    notificacoes: boolean;
+    recado: string;
+    numero: string;
+    grupos: Array<string>;
+    id: string;
+}
+
 export interface Mensagem {
     data: Date;
     autor: string;

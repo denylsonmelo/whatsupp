@@ -1,9 +1,79 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <ion-img [src]="perfil.foto"></ion-img>
+  <ion-label> {{ perfil.nome }} </ion-label>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-card-title>Grupos em comum</ion-card-title>
+      <ion-button slot="end">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-item>
 
+    <ion-card-content>
+      <ion-item *ngFor="let grupo of perfil.grupos">
+        <ion-avatar slot="start">
+          <img
+            [src]="perfil.foto"
+          />
+        </ion-avatar>
+        <ion-label> {{ grupo }}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-card-title>Midia</ion-card-title>
+      <ion-button slot="end">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-slides pager="false" [options]="slideOpts">
+        <ion-slide *ngFor="let midia of perfil.midia">
+          <ion-thumbnail>
+            <img [src]="perfil.foto" />
+          </ion-thumbnail>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-label>Silenciar notificações</ion-label>
+    <ion-toggle [(ngModel)]="perfil.notificacoes"></ion-toggle>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Recado e Número de telefone</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label> {{ perfil.recado }} </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label> {{ perfil.numero }} </ion-label>
+        <ion-icon name="pin" slot="end"></ion-icon>
+        <ion-icon name="pin" slot="end"></ion-icon>
+        <ion-icon name="pin" slot="end"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
