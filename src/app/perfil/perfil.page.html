@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
@@ -10,36 +10,18 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-img [src]="perfil.foto"></ion-img>
-  <ion-label> {{ perfil.nome }} </ion-label>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <ion-card-title>Grupos em comum</ion-card-title>
-      <ion-button slot="end">
-        <ion-icon slot="icon-only" name="more"></ion-icon>
-      </ion-button>
-    </ion-item>
-
-    <ion-card-content>
-      <ion-item *ngFor="let grupo of perfil.grupos">
-        <ion-avatar slot="start">
-          <img
-            [src]="perfil.foto"
-          />
-        </ion-avatar>
-        <ion-label> {{ grupo }}</ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <ion-img [src]="perfil.foto"></ion-img>
+  <ion-label> {{ perfil.nome }} </ion-label>
 
   <ion-card>
     <ion-item>
       <ion-card-title>Midia</ion-card-title>
-      <ion-button slot="end">
-        <ion-icon slot="icon-only" name="more"></ion-icon>
+      <ion-button slot="end" fill="clear">
+        {{ perfil.midia.length }}
+        <ion-icon slot="end" name="ios-arrow-forward"></ion-icon>
       </ion-button>
     </ion-item>
 
@@ -49,6 +31,11 @@
           <ion-thumbnail>
             <img [src]="perfil.foto" />
           </ion-thumbnail>
+        </ion-slide>
+        <ion-slide>
+          <ion-button slot="end" fill="clear">
+            <ion-icon slot="icon-only" name="ios-arrow-forward"></ion-icon>
+          </ion-button>
         </ion-slide>
       </ion-slides>
     </ion-card-content>
@@ -70,9 +57,26 @@
       </ion-item>
       <ion-item>
         <ion-label> {{ perfil.numero }} </ion-label>
-        <ion-icon name="pin" slot="end"></ion-icon>
-        <ion-icon name="pin" slot="end"></ion-icon>
-        <ion-icon name="pin" slot="end"></ion-icon>
+        <ion-icon name="text" slot="end" color="primary"></ion-icon>
+        <ion-icon name="call" slot="end" color="primary"></ion-icon>
+        <ion-icon name="videocam" slot="end" color="primary"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-card-title>Grupos em comum</ion-card-title>
+      <ion-button slot="end" fill="clear">
+        {{ perfil.grupos.length }}
+      </ion-button>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-item *ngFor="let grupo of perfil.grupos" lines="none">
+        <ion-avatar slot="start">
+          <img [src]="perfil.foto" />
+        </ion-avatar>
+        <ion-label> {{ grupo }}</ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>
