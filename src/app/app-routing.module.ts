@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'listagem', loadChildren: './listagem/listagem.module#ListagemPageModule' },
   { path: 'conversa', loadChildren: './conversa/conversa.module#ConversaPageModule' },
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: '**', loadChildren: './listagem/listagem.module#ListagemPageModule' },
 ];
 @NgModule({
