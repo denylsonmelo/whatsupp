@@ -16,7 +16,9 @@
   </ion-item>
 
   <ion-button expand="block" (click)="registrar()"  >registrar</ion-button>
-  <ion-button expand="block">entrar</ion-button>
-  <ion-button expand="block">sair</ion-button>
+  <ion-button expand="block" (click)="logar()" >entrar</ion-button>
+  <ion-button expand="block" (click)="logout()">sair</ion-button>
+
+  {{ usuarioFirebase | async | json }}
 
 </ion-content>
