@@ -20,5 +20,12 @@
   <ion-button expand="block" (click)="logout()">sair</ion-button>
 
   {{ usuarioFirebase | async | json }}
+  <br/>
+
+  <div id="colecao">
+    <div *ngFor="let item of colecaoFirebase" >
+      {{ item }}
+    </div>
+  </div>
 
 </ion-content>

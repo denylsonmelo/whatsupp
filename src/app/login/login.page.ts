@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LoginPage implements OnInit {
   usuario = { email: '', senha: '' };
   usuarioFirebase;
+  colecaoFirebase;
 
   logout() {
-    this.afa.auth.signOut();
+    // this.afa.auth.signOut();
+
+    console.log(this.colecaoFirebase);
+
   }
 
   logar() {
@@ -19,8 +24,8 @@ export class LoginPage implements OnInit {
       this.usuario.email,
       this.usuario.senha
     )
-    .then(sucesso => {console.log(sucesso);})
-    .catch(erro => {console.log(erro);});
+    .then(sucesso => {console.log(sucesso); })
+    .catch(erro => {console.log(erro); });
   }
 
   registrar() {
@@ -36,8 +41,16 @@ export class LoginPage implements OnInit {
       });
   }
 
-  constructor(private afa: AngularFireAuth) {
+  constructor(
+    private afa: AngularFireAuth,
+    private store: AngularFirestore
+    ) {
     this.usuarioFirebase = this.afa.authState;
+
+    this.store.collection('alunos').stateChanges()
+      .subscribe(dados => {
+        this.colecaoFirebase = dados;
+      });
   }
 
   ngOnInit() {}
