@@ -47,10 +47,34 @@ export class LoginPage implements OnInit {
     ) {
     this.usuarioFirebase = this.afa.authState;
 
-    this.store.collection('alunos').stateChanges()
+    this.store.collection('alunos').snapshotChanges()
       .subscribe(dados => {
         this.colecaoFirebase = dados;
       });
+  }
+
+  salvar() {
+    this.store.collection('alunos').add({
+      nome: this.usuario.email,
+      disciplina: this.usuario.senha,
+      nota: 8
+    });
+  }
+
+  atualizar(item) {
+    this.store.collection('alunos')
+      .doc(item.payload.doc.id)
+      .set({
+        nome: 'tay',
+        nota: 5,
+        materia: 'alg 2',
+      }, {merge: true});
+  }
+
+  delete(id) {
+    this.store.collection('alunos')
+      .doc(id)
+      .delete();
   }
 
   ngOnInit() {}

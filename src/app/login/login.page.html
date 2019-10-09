@@ -17,14 +17,21 @@
 
   <ion-button expand="block" (click)="registrar()"  >registrar</ion-button>
   <ion-button expand="block" (click)="logar()" >entrar</ion-button>
-  <ion-button expand="block" (click)="logout()">sair</ion-button>
+  <ion-button expand="block" (click)="salvar()">sair</ion-button>
 
   {{ usuarioFirebase | async | json }}
   <br/>
 
   <div id="colecao">
     <div *ngFor="let item of colecaoFirebase" >
-      {{ item }}
+      <p style="font-size: 26px">
+        {{ item.payload.doc.id  }}
+        {{ item.payload.doc.data().nome  }}
+        {{ item.payload.doc.data().disciplina  }}
+        {{ item.payload.doc.data().nota  }}
+      </p>
+      <button type="button" (click)="atualizar(item)">Atualizar</button> 
+      <button type="button" (click)="delete(item.payload.doc.id)">Apagar</button> 
     </div>
   </div>
 
