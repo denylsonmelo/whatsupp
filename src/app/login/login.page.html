@@ -8,18 +8,18 @@
 
   <ion-item>
     <ion-label position="floating">Email</ion-label>
-    <ion-input [(ngModel)]="usuario.email"></ion-input>
+    <ion-input [(ngModel)]="email"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Senha</ion-label>
-    <ion-input type="password" [(ngModel)]="usuario.senha"></ion-input>
+    <ion-input type="password" [(ngModel)]="senha"></ion-input>
   </ion-item>
 
   <ion-button expand="block" (click)="registrar()"  >registrar</ion-button>
   <ion-button expand="block" (click)="logar()" >entrar</ion-button>
-  <ion-button expand="block" (click)="salvar()">sair</ion-button>
+  <ion-button expand="block" (click)="sair()">sair</ion-button>
 
-  {{ usuarioFirebase | async | json }}
+  {{ usuario| async | json }}
   <br/>
 
   <div id="colecao">

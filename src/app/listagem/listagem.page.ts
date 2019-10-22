@@ -4,6 +4,7 @@ import { NavController, PopoverController } from '@ionic/angular';
 import { ResumoConversa, StatusMensagem } from '../models/models';
 import { MenuOpcoesComponent } from '../components/menu-opcoes/menu-opcoes.component';
 import { OpcoesContatoComponent } from '../components/opcoes-contato/opcoes-contato.component';
+import { ArmazenamentoService } from '../services/armazenamento.service';
 
 @Component({
   selector: 'app-listagem',
@@ -29,8 +30,9 @@ export class ListagemPage {
 
   constructor(
     private navCtrl: NavController,
-    private ppvCtrl: PopoverController
-  ) {}
+    private ppvCtrl: PopoverController,
+    private armazenamento: ArmazenamentoService
+  ) { }
 
   async exibirOpcoesContato(conversa: ResumoConversa) {
     const modal = await this.ppvCtrl.create({
