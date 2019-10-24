@@ -7,8 +7,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AutenticacaoService {
-  usuario;
-  colecaoFirebase;
   logout() {
     this.afa.auth.signOut();
   }
@@ -39,17 +37,15 @@ export class AutenticacaoService {
       });
   }
 
-  getUser() {
-    console.log('dentro do user');
-    console.log(this.usuario);
-    return this.usuario;
+  async getUser() {
+    console.log('dentro do user autenti');
+
+    return this.afa.authState.subscribe(usuario => {
+      return usuario ? usuario.email : null;
+    });
   }
 
   constructor(private afa: AngularFireAuth) {
     console.log('construtor autenticacao');
-
-    this.afa.authState.subscribe(usuario => {
-      if (usuario) { console.log('existe'); } else { console.log('nao existe'); }
-    });
   }
 }

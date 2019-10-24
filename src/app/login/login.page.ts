@@ -7,7 +7,8 @@ import { AutenticacaoService } from '../services/autenticacao.service';
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
-  email; senha;
+  email;
+  senha;
   usuario;
 
   sair() {
@@ -18,11 +19,11 @@ export class LoginPage implements OnInit {
     this.autenticacao.logar(this.email, this.senha);
   }
 
-  constructor(private autenticacao: AutenticacaoService) {
-    this.usuario = this.autenticacao.getUser();
-    console.log('dentro do user');
+  constructor(private autenticacao: AutenticacaoService) {}
+
+  async ngOnInit() {
+    console.log('dentro do login');
+    this.usuario = await this.autenticacao.getUser();
     console.log(this.usuario);
   }
-
-  ngOnInit() {}
 }
